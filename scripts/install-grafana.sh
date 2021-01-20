@@ -43,7 +43,7 @@ while getopts :A:V:p:h: optname; do
     \?) #unrecognized option - show help
       echo -e \\n"Option -${BOLD}$OPTARG${NORM} not allowed."
       help
-      exit 2
+      exit 3
       ;;
   esac
 done
