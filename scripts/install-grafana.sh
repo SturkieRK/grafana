@@ -7,7 +7,7 @@ GRAFANA_PORT="3000"
 # Utility Log Command
 log()
 {
-    echo "date -u +'%Y-%m-%d %H:%M:%S': ${1}"
+    echo "${1}"
 }
 
 help()
