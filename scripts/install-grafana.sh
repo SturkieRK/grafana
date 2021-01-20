@@ -4,22 +4,6 @@
 GRAFANA_VERSION="7.3.1"
 GRAFANA_PORT="3000"
 
-# Utility Log Command
-log()
-{
-    echo "${1}"
-}
-
-help()
-{
-    echo "This script installs Grafana cluster on Ubuntu"
-    echo "Parameters:"
-    echo "-A admin password"
-    echo "-V version of grafana to use. Default:${GRAFANA_VERSION}"
-    echo "-p port to host grafana-server"
-    echo "-h view this help content"
-}
-
 # Parameters
 ADMIN_PWD="admin"
 
@@ -51,7 +35,6 @@ done
 # Install Grafana
 install_grafana()
 {
-    log "Downloading grafana with version ${GRAFANA_VERSION}"
     local DOWNLOAD_URL="https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb"
     sudo apt-get install -y adduser libfontconfig
     wget "${DOWNLOAD_URL}"
@@ -61,7 +44,6 @@ install_grafana()
 
 start_grafana()
 {
-    log "Staring the grafana-server"
     systemctl start grafana-server
     sudo systemctl enable grafana-server.service
 }
@@ -69,7 +51,6 @@ start_grafana()
 # Install the Azure Data Explorer Datasource
 install_azure_data_explorer_plugin()
 {
-    log "Install grafana-azure-data-explorer-datasource"
     grafana-cli plugins install grafana-azure-data-explorer-datasource
     systemctl restart grafana-server
 }
