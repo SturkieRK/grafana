@@ -7,31 +7,6 @@ GRAFANA_PORT="3000"
 # Parameters
 ADMIN_PWD="admin"
 
-#Loop through options passed
-while getopts A:V::ph optname; do
-  log "Option $optname set"
-  case $optname in
-    A)
-      ADMIN_PWD="${OPTARG}"
-      ;;
-    V) #input desired grafana version
-        GRAFANA_VERSION="${OPTARG}"
-        ;;
-    p) #port number for local grafana server
-        GRAFANA_PORT="${OPTARG}"
-        ;;
-    h) #show help
-      help
-      exit 2
-      ;;
-    \?) #unrecognized option - show help
-      echo -e \\n"Option -${BOLD}$OPTARG${NORM} not allowed."
-      help
-      exit 3
-      ;;
-  esac
-done
-
 # Install Grafana
 install_grafana()
 {
