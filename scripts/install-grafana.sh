@@ -31,12 +31,12 @@ install_azure_data_explorer_plugin()
 }
 
 # Update the grafana passord of the admin account
-configure_admin_password()
-{
-    sed -i "s/;admin_password = admin/admin_password = ${ADMIN_PWD}/" /etc/grafana/grafana.ini
-}
+# configure_admin_password()
+# {
+#     sed -i "s/;admin_password = admin/admin_password = ${ADMIN_PWD}/" /etc/grafana/grafana.ini
+# }
 
 install_grafana
-configure_admin_password
+# configure_admin_password
 start_grafana
 install_azure_data_explorer_plugin
