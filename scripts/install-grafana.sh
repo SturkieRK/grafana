@@ -24,7 +24,7 @@ help()
 ADMIN_PWD="admin"
 
 #Loop through options passed
-while getopts :A:V:p:h: optname; do
+while getopts A:V::ph optname; do
   log "Option $optname set"
   case $optname in
     A)
